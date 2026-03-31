@@ -145,7 +145,7 @@ const Footer = ({ go }) => (
             <img src={IMAGES.logo} alt="Logo" style={{ width: 44, height: 44, borderRadius: 0, objectFit: "contain" }} />
             <span style={{ color: "white", fontWeight: 900, textTransform: "uppercase" }}>Selela SA <Grad>Africa</Grad></span>
           </button>
-          <p style={{ color: "#9ca3af", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>Providing specialized corporate and industrial services across the African continent. Reg: 2014/236708/07</p>
+          <p style={{ color: "#9ca3af", fontSize: 14, lineHeight: 1.7, maxWidth: 280 }}>Level 1 B-BBEE certified industrial services company est. 2014, delivering construction, logistics, engineering, and compliance solutions from Ledig, North West Province. Reg: 2014/236708/07</p>
         </div>
         <div>
           <h4 style={{ color: "white", fontWeight: 900, fontSize: 10, textTransform: "uppercase", letterSpacing: "0.25em", marginBottom: 32 }}>Navigation</h4>
@@ -226,101 +226,400 @@ const Chatbot = () => {
 // PAGES
 // ═══════════════════════════════════════════════════════════════════════
 
-const HomePage = ({ go }) => (
-  <div style={{ maxWidth: 1280, margin: "0 auto", padding: 24, display: "flex", flexDirection: "column", gap: 48 }}>
-    <section style={{ position: "relative", overflow: "hidden", borderRadius: 32, minHeight: 520, display: "flex", alignItems: "center" }}>
-      <img src={IMAGES.hero} alt="Industrial site" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}/>
-      <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(7,18,14,0.92) 0%, rgba(7,18,14,0.6) 60%, rgba(7,18,14,0.3) 100%)" }}/>
-      <div style={{ position: "relative", zIndex: 10, padding: "clamp(32px, 5vw, 64px)", maxWidth: 640 }}>
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "4px 14px", borderRadius: 20, background: "rgba(190,242,100,0.15)", border: "1px solid rgba(190,242,100,0.3)", color: C.lime, fontSize: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 24 }}><Zap size={14}/> Industrial Excellence</div>
-        <h1 style={{ fontSize: "clamp(32px, 5vw, 60px)", fontWeight: 900, color: "white", lineHeight: 1.08, marginBottom: 24 }}>Pioneering <Grad>Industrial</Grad> Solutions in Africa</h1>
-        <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(15px, 2vw, 19px)", lineHeight: 1.7, marginBottom: 32 }}>Selela SA Africa (Pty) Ltd provides high-tier corporate and industrial services, focusing on safety, efficiency, and pan-African growth.</p>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
-          <button onClick={() => go("services")} style={{ padding: "16px 32px", background: "linear-gradient(135deg, #b89146, #bef264)", color: C.forestDeep, fontWeight: 700, borderRadius: 16, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 8, fontSize: 15, boxShadow: "0 10px 25px rgba(190,242,100,0.2)" }}>Explore Services <ArrowUpRight size={20}/></button>
-          <button onClick={() => go("about")} style={{ padding: "16px 32px", background: "rgba(255,255,255,0.1)", color: "white", fontWeight: 700, borderRadius: 16, border: "1px solid rgba(255,255,255,0.2)", cursor: "pointer", fontSize: 15 }}>Corporate Profile</button>
-        </div>
-      </div>
-    </section>
-    <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 24 }}>
-      {[{ l: "Active Projects", v: "42", I: Activity, c: C.lime }, { l: "Safety Rating", v: "99.8%", I: CheckCircle2, c: C.gold }, { l: "Operating Regions", v: "12", I: Globe, c: "#60a5fa" }, { l: "Annual Growth", v: "+24%", I: BarChart3, c: C.lime }].map((s, i) => (
-        <Glass key={i} style={{ borderRadius: 24, padding: 24 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 16 }}><div style={{ padding: 12, borderRadius: 16, background: "rgba(26,51,42,0.5)", color: s.c }}><s.I size={24}/></div></div>
-          <h3 style={{ fontSize: 30, fontWeight: 900, color: "white", marginBottom: 4 }}>{s.v}</h3>
-          <p style={{ fontSize: 14, color: "#9ca3af" }}>{s.l}</p>
-        </Glass>
-      ))}
-    </div>
-    <section>
-      <div style={{ marginBottom: 32 }}><Tag>Core Competencies</Tag><h2 style={{ fontSize: 28, fontWeight: 700, color: "white", textTransform: "uppercase" }}>Our Specialized Segments</h2></div>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24 }}>
-        {[{ t: "Heavy Industry Maintenance", d: "High-precision engineering and structural maintenance for mining and manufacturing.", tag: "Industrial", img: IMAGES.industrial },
-          { t: "Corporate Risk Mitigation", d: "Strategic governance and compliance frameworks for cross-border operations.", tag: "Governance", img: IMAGES.safety },
-          { t: "Logistics Optimization", d: "Integrated supply chain solutions leveraging analytics and IoT tracking.", tag: "Logistics", img: IMAGES.logistics }
-        ].map((s, i) => (
-          <Glass key={i} style={{ borderRadius: 24, overflow: "hidden", cursor: "pointer", transition: "border-color 0.4s" }} onMouseEnter={e=>e.currentTarget.style.borderColor="rgba(190,242,100,0.2)"} onMouseLeave={e=>e.currentTarget.style.borderColor="rgba(255,255,255,0.05)"}>
-            <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
-              <img src={s.img} alt={s.t} style={{ width: "100%", height: "100%", objectFit: "cover" }}/>
-              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 50%, rgba(15,33,27,0.9) 100%)" }}/>
-              <div style={{ position: "absolute", top: 16, left: 16, padding: "4px 12px", borderRadius: 8, background: "rgba(7,18,14,0.7)", fontSize: 10, fontWeight: 700, color: C.lime, textTransform: "uppercase" }}>{s.tag}</div>
+const HomePage = ({ go }) => {
+  const [countUp, setCountUp] = useState({ projects: 0, safety: 0, regions: 0, growth: 0 });
+  useEffect(() => {
+    const targets = { projects: 42, safety: 99.8, regions: 12, growth: 24 };
+    const duration = 2000;
+    const steps = 60;
+    let step = 0;
+    const interval = setInterval(() => {
+      step++;
+      const progress = Math.min(step / steps, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      setCountUp({
+        projects: Math.round(targets.projects * ease),
+        safety: Math.round(targets.safety * ease * 10) / 10,
+        regions: Math.round(targets.regions * ease),
+        growth: Math.round(targets.growth * ease),
+      });
+      if (step >= steps) clearInterval(interval);
+    }, duration / steps);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+
+      {/* ═══ SECTION 1: HERO — Full width cinematic ═══ */}
+      <section style={{ position: "relative", overflow: "hidden", minHeight: "85vh", display: "flex", alignItems: "center" }}>
+        <img src={IMAGES.hero} alt="Industrial operations" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(7,18,14,0.95) 0%, rgba(7,18,14,0.7) 50%, rgba(7,18,14,0.4) 100%)" }} />
+        <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: 200, background: "linear-gradient(180deg, transparent, #07120e)" }} />
+        {/* Decorative grid lines */}
+        <div style={{ position: "absolute", top: 0, right: "10%", width: 1, height: "100%", background: "rgba(190,242,100,0.05)" }} />
+        <div style={{ position: "absolute", top: 0, right: "30%", width: 1, height: "100%", background: "rgba(190,242,100,0.03)" }} />
+        <div style={{ position: "absolute", top: "40%", left: 0, right: 0, height: 1, background: "rgba(190,242,100,0.04)" }} />
+
+        <div style={{ position: "relative", zIndex: 10, maxWidth: 1280, margin: "0 auto", padding: "clamp(80px, 12vw, 160px) 24px 80px", width: "100%" }}>
+          <div style={{ maxWidth: 720 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 32 }}>
+              <div style={{ width: 48, height: 2, background: C.lime }} />
+              <span style={{ fontSize: 11, fontWeight: 800, color: C.lime, textTransform: "uppercase", letterSpacing: "0.25em" }}>Est. 2014 · Level 1 B-BBEE · Ledig, North West</span>
             </div>
-            <div style={{ padding: "24px 28px 28px" }}><h4 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 12 }}>{s.t}</h4><p style={{ color: "#9ca3af", fontSize: 14, lineHeight: 1.7 }}>{s.d}</p></div>
-          </Glass>
-        ))}
-      </div>
-    </section>
-    <section style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 16 }} className="img-grid">
-      <div style={{ position: "relative", borderRadius: 24, overflow: "hidden", gridRow: "span 2", minHeight: 320 }}>
-        <img src={IMAGES.construction} alt="Construction" style={{ width: "100%", height: "100%", objectFit: "cover" }}/><div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 30%, rgba(7,18,14,0.85) 100%)" }}/><div style={{ position: "absolute", bottom: 24, left: 24 }}><span style={{ fontSize: 10, fontWeight: 700, color: C.lime, textTransform: "uppercase", letterSpacing: "0.2em" }}>Featured</span><h3 style={{ color: "white", fontWeight: 800, fontSize: 22, marginTop: 4 }}>Infrastructure Development</h3></div>
-      </div>
-      {[{ img: IMAGES.mining, l: "Mining Operations" }, { img: IMAGES.warehouse, l: "Warehousing" }, { img: IMAGES.consulting, l: "Strategic Consulting" }, { img: IMAGES.realEstate, l: "Real Estate" }].map((x, i) => (
-        <div key={i} style={{ position: "relative", borderRadius: 24, overflow: "hidden", minHeight: 150 }}><img src={x.img} alt={x.l} style={{ width: "100%", height: "100%", objectFit: "cover" }}/><div style={{ position: "absolute", inset: 0, background: "rgba(7,18,14,0.4)" }}/><div style={{ position: "absolute", bottom: 16, left: 16 }}><span style={{ color: "white", fontWeight: 700, fontSize: 14 }}>{x.l}</span></div></div>
-      ))}
-    </section>
-    <Glass style={{ borderRadius: 32, overflow: "hidden", borderColor: "rgba(184,145,70,0.1)" }}>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        <div style={{ flex: "1 1 400px", padding: "clamp(28px, 4vw, 48px)" }}>
-          <Tag>Trust & Safety</Tag><h2 style={{ fontSize: 28, fontWeight: 700, color: "white", marginBottom: 16 }}>Uncompromising Standards</h2>
-          <p style={{ color: "#9ca3af", lineHeight: 1.7, marginBottom: 24 }}>Our operations are built on rigorous safety protocols and ethical business practices.</p>
-          {["Registration: 2014/236708/07", "CIE Number: 28/1/2/1/22442", "B-BBEE Level 1 Contributor", "ISO 9001:2015 Quality Management"].map((c, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, fontSize: 14, color: "#e5e7eb", marginBottom: 12 }}><div style={{ width: 20, height: 20, borderRadius: "50%", background: "rgba(190,242,100,0.2)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><CheckCircle2 size={12} style={{ color: C.lime }}/></div>{c}</div>
+            <h1 style={{ fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 900, color: "white", lineHeight: 1.04, marginBottom: 28, letterSpacing: "-0.03em" }}>
+              Building Africa's<br /><Grad>Industrial Future</Grad>
+            </h1>
+            <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "clamp(16px, 2vw, 20px)", lineHeight: 1.8, marginBottom: 40, maxWidth: 560 }}>
+              From structural steel to strategic consulting — Selela SA Africa delivers construction, engineering, logistics, and compliance solutions for mining houses, government, and private sector clients across Southern Africa.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: 48 }}>
+              <button onClick={() => go("services")} style={{ padding: "18px 36px", background: C.lime, color: C.forestDeep, fontWeight: 800, borderRadius: 14, border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 10, fontSize: 15, letterSpacing: "0.02em", transition: "transform 0.2s", boxShadow: "0 10px 40px rgba(190,242,100,0.15)" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "translateY(-2px)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}
+              >Explore Our Services <ArrowUpRight size={20} /></button>
+              <button onClick={() => go("contact")} style={{ padding: "18px 36px", background: "transparent", color: "white", fontWeight: 700, borderRadius: 14, border: "1px solid rgba(255,255,255,0.15)", cursor: "pointer", fontSize: 15, transition: "all 0.3s" }}
+                onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.05)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.3)"; }}
+                onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
+              >Get In Touch</button>
+            </div>
+            {/* Trust badges inline */}
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 24 }}>
+              {[["Reg: 2014/236708/07", Shield], ["B-BBEE Level 1", Award], ["NHBRC Registered", CheckCircle2]].map(([label, Icon], i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                  <Icon size={14} style={{ color: C.gold }} />
+                  <span style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", fontWeight: 600, letterSpacing: "0.05em" }}>{label}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 2: STATS BAR — Animated counters ═══ */}
+      <section style={{ background: C.forestMid, borderTop: "1px solid rgba(190,242,100,0.08)", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "48px 24px", display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 32 }}>
+          {[
+            { label: "Active Projects", value: countUp.projects, suffix: "+", color: C.lime },
+            { label: "Safety Rating", value: countUp.safety, suffix: "%", color: C.gold },
+            { label: "Operating Regions", value: countUp.regions, suffix: "", color: "#60a5fa" },
+            { label: "Year-on-Year Growth", value: countUp.growth, suffix: "%", color: C.lime },
+          ].map((s, i) => (
+            <div key={i} style={{ textAlign: "center", position: "relative" }}>
+              {i > 0 && <div style={{ position: "absolute", left: -16, top: "10%", bottom: "10%", width: 1, background: "rgba(255,255,255,0.05)" }} className="hide-m" />}
+              <div style={{ fontSize: 42, fontWeight: 900, color: s.color, lineHeight: 1, marginBottom: 6, fontVariantNumeric: "tabular-nums" }}>{s.value}{s.suffix}</div>
+              <div style={{ fontSize: 11, fontWeight: 700, color: "#6b7280", textTransform: "uppercase", letterSpacing: "0.15em" }}>{s.label}</div>
+            </div>
           ))}
         </div>
-        <div style={{ flex: "1 1 300px", minHeight: 320, position: "relative" }}><img src={IMAGES.safety} alt="Safety" style={{ width: "100%", height: "100%", objectFit: "cover" }}/><div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(15,33,27,0.6) 0%, transparent 40%)" }}/></div>
-      </div>
-    </Glass>
-  </div>
-);
+      </section>
+
+      {/* ═══ SECTION 3: WHO WE ARE — Split intro ═══ */}
+      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 24px" }}>
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center" }} className="svc-grid">
+          <div>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 20 }}>
+              <div style={{ width: 40, height: 2, background: C.gold }} />
+              <Tag>Who We Are</Tag>
+            </div>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 44px)", fontWeight: 900, color: "white", lineHeight: 1.15, marginBottom: 24, letterSpacing: "-0.02em" }}>
+              A 100% Black-Owned<br />Industrial Powerhouse
+            </h2>
+            <p style={{ color: "#9ca3af", fontSize: 16, lineHeight: 1.9, marginBottom: 20 }}>
+              Headquartered in Ledig, North West Province — at the heart of South Africa's platinum belt — Selela SA Africa has been delivering excellence in construction, engineering, and logistics since 2014.
+            </p>
+            <p style={{ color: "#6b7280", fontSize: 15, lineHeight: 1.8, marginBottom: 32 }}>
+              Our Level 1 B-BBEE status with 135% procurement recognition makes us the ideal empowerment partner for mining houses, SOEs, and government departments seeking genuine transformation in their supply chains.
+            </p>
+            <div style={{ display: "flex", gap: 12 }}>
+              <button onClick={() => go("about")} style={{ padding: "14px 28px", background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, color: "white", fontWeight: 700, fontSize: 14, cursor: "pointer", display: "flex", alignItems: "center", gap: 8 }}>
+                Read Our Story <ArrowUpRight size={16} />
+              </button>
+            </div>
+          </div>
+          <div style={{ position: "relative" }}>
+            <div style={{ position: "relative", borderRadius: 28, overflow: "hidden", height: 420 }}>
+              <img src={IMAGES.consulting} alt="Our team" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(7,18,14,0.6) 100%)" }} />
+            </div>
+            {/* Floating stat card */}
+            <div style={{ position: "absolute", bottom: -20, left: -20, background: C.forestMid, border: "1px solid rgba(190,242,100,0.15)", borderRadius: 20, padding: "20px 28px", boxShadow: "0 20px 60px rgba(0,0,0,0.4)" }}>
+              <div style={{ fontSize: 32, fontWeight: 900, color: C.lime }}>10+</div>
+              <div style={{ fontSize: 11, color: "#6b7280", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em" }}>Years of Service</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 4: SERVICES — Clickable grid ═══ */}
+      <section style={{ background: "linear-gradient(180deg, transparent, rgba(15,33,27,0.4), transparent)", padding: "80px 0" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 24px" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 40, gap: 16 }}>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+                <div style={{ width: 40, height: 2, background: C.lime }} />
+                <Tag>What We Do</Tag>
+              </div>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 900, color: "white", letterSpacing: "-0.02em" }}>Our Core Service Areas</h2>
+            </div>
+            <button onClick={() => go("services")} style={{ fontSize: 14, fontWeight: 700, color: C.gold, background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
+              View All Services <ArrowUpRight size={16} />
+            </button>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 20 }}>
+            {(typeof SERVICE_LINKS !== "undefined" ? SERVICE_LINKS : []).map((s, i) => (
+              <Glass key={i} style={{ borderRadius: 20, overflow: "hidden", cursor: "pointer", transition: "all 0.4s" }}
+                onClick={() => go(s.id)}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = s.c + "44"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "translateY(0)"; }}
+              >
+                <div style={{ position: "relative", height: 180, overflow: "hidden" }}>
+                  <img src={s.img} alt={s.t} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s" }}
+                    onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
+                    onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"} />
+                  <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(15,33,27,0.95) 100%)" }} />
+                  <div style={{ position: "absolute", bottom: 14, left: 16 }}>
+                    <div style={{ width: 38, height: 38, borderRadius: 10, background: "rgba(7,18,14,0.7)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(255,255,255,0.1)" }}>
+                      <s.I style={{ color: s.c }} size={18} />
+                    </div>
+                  </div>
+                </div>
+                <div style={{ padding: "18px 20px 22px" }}>
+                  <h3 style={{ fontSize: 17, fontWeight: 700, color: "white", marginBottom: 8 }}>{s.t}</h3>
+                  <p style={{ color: "#6b7280", fontSize: 13, lineHeight: 1.6, marginBottom: 14 }}>{s.d}</p>
+                  <span style={{ fontSize: 11, fontWeight: 700, color: s.c, textTransform: "uppercase", letterSpacing: "0.08em" }}>Learn More →</span>
+                </div>
+              </Glass>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 5: PROJECT SHOWCASE — Masonry-style gallery ═══ */}
+      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 24px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+          <div style={{ width: 40, height: 2, background: C.gold }} />
+          <Tag>Our Work</Tag>
+        </div>
+        <h2 style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 900, color: "white", letterSpacing: "-0.02em", marginBottom: 32 }}>Project Showcase</h2>
+        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr 1fr", gap: 12 }} className="img-grid">
+          <div style={{ position: "relative", borderRadius: 20, overflow: "hidden", gridRow: "span 2", minHeight: 380 }}>
+            <img src={IMAGES.construction} alt="Construction" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(7,18,14,0.9) 100%)" }} />
+            <div style={{ position: "absolute", bottom: 24, left: 24, right: 24 }}>
+              <div style={{ display: "inline-block", padding: "4px 10px", borderRadius: 6, background: "rgba(190,242,100,0.15)", fontSize: 10, fontWeight: 700, color: C.lime, textTransform: "uppercase", letterSpacing: "0.15em", marginBottom: 8 }}>Featured</div>
+              <h3 style={{ color: "white", fontWeight: 800, fontSize: 24 }}>Infrastructure Development</h3>
+              <p style={{ color: "rgba(255,255,255,0.5)", fontSize: 14, marginTop: 6 }}>Multi-story commercial and industrial construction projects across the Bojanala district</p>
+            </div>
+          </div>
+          {[
+            { img: IMAGES.mining, l: "Mining Operations", sub: "Platinum belt support services" },
+            { img: IMAGES.warehouse, l: "Warehousing & Logistics", sub: "Storage and distribution" },
+            { img: IMAGES.industrial, l: "Plant Maintenance", sub: "Shutdown and turnaround" },
+            { img: IMAGES.realEstate, l: "Property Development", sub: "Residential and commercial" },
+          ].map((x, i) => (
+            <div key={i} style={{ position: "relative", borderRadius: 20, overflow: "hidden", minHeight: 180 }}>
+              <img src={x.img} alt={x.l} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.05)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 30%, rgba(7,18,14,0.85) 100%)" }} />
+              <div style={{ position: "absolute", bottom: 14, left: 14 }}>
+                <h4 style={{ color: "white", fontWeight: 700, fontSize: 14 }}>{x.l}</h4>
+                <p style={{ color: "rgba(255,255,255,0.4)", fontSize: 11, marginTop: 2 }}>{x.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ═══ SECTION 6: WHY CHOOSE US — Differentiators ═══ */}
+      <section style={{ background: C.forestMid, borderTop: "1px solid rgba(255,255,255,0.03)", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 24px" }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: 12, marginBottom: 12 }}>
+              <div style={{ width: 40, height: 2, background: C.lime }} />
+              <Tag>Why Selela</Tag>
+              <div style={{ width: 40, height: 2, background: C.lime }} />
+            </div>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 900, color: "white", letterSpacing: "-0.02em" }}>What Sets Us Apart</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24 }}>
+            {[
+              { icon: Award, title: "Level 1 B-BBEE", desc: "135% procurement recognition — the highest possible rating. Partnering with us maximises your BEE scorecard points on ownership, enterprise development, and preferential procurement.", color: C.lime },
+              { icon: MapPin, title: "Strategic Location", desc: "Based in Ledig at the doorstep of Sun City and the Pilanesberg platinum mining corridor. We serve Anglo American Platinum, Impala, and Royal Bafokeng operations within a 50km radius.", color: C.gold },
+              { icon: Shield, title: "Safety First Culture", desc: "Zero-tolerance approach to unsafe conditions. Our SACPCMP-registered safety professionals ensure every project meets OHS Act, MHSA, and Construction Regulation requirements from day one.", color: "#60a5fa" },
+              { icon: Users, title: "Local Employment", desc: "We prioritise hiring from Ledig, Letlhabile, Phokeng, and surrounding communities. Our skills transfer programmes develop qualified artisans, operators, and safety officers for long-term careers.", color: C.lime },
+              { icon: TrendingUp, title: "End-to-End Delivery", desc: "From feasibility studies and tender preparation through to construction, logistics, and compliance — we eliminate the need for multiple subcontractors with our integrated service model.", color: C.gold },
+              { icon: Globe, title: "Regional Reach", desc: "Our operational footprint spans North West, Gauteng, Limpopo, and Mpumalanga, with established relationships across mining houses, municipalities, and provincial government departments.", color: "#60a5fa" },
+            ].map((item, i) => (
+              <div key={i} style={{ padding: 32, background: C.forestDeep, borderRadius: 20, border: "1px solid rgba(255,255,255,0.04)", transition: "all 0.4s", position: "relative", overflow: "hidden" }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = item.color + "33"}
+                onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.04)"}
+              >
+                <div style={{ position: "absolute", top: -20, right: -20, width: 100, height: 100, background: item.color, opacity: 0.03, borderRadius: "50%" }} />
+                <div style={{ width: 48, height: 48, borderRadius: 14, background: item.color + "15", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 20 }}>
+                  <item.icon size={22} style={{ color: item.color }} />
+                </div>
+                <h3 style={{ color: "white", fontWeight: 700, fontSize: 18, marginBottom: 10 }}>{item.title}</h3>
+                <p style={{ color: "#6b7280", fontSize: 14, lineHeight: 1.7 }}>{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 7: CERTIFICATIONS — Trust strip ═══ */}
+      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 24px" }}>
+        <Glass style={{ borderRadius: 28, overflow: "hidden", borderColor: "rgba(184,145,70,0.15)" }}>
+          <div style={{ display: "flex", flexWrap: "wrap" }}>
+            <div style={{ flex: "1 1 420px", padding: "clamp(32px, 4vw, 56px)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 16 }}>
+                <div style={{ width: 40, height: 2, background: C.gold }} />
+                <Tag>Certifications & Compliance</Tag>
+              </div>
+              <h2 style={{ fontSize: 32, fontWeight: 900, color: "white", marginBottom: 16, letterSpacing: "-0.02em" }}>Uncompromising Standards</h2>
+              <p style={{ color: "#9ca3af", lineHeight: 1.8, marginBottom: 28, fontSize: 15 }}>
+                Since 2014, we have maintained full regulatory compliance and the highest safety standards. Our certifications and registrations ensure every project we deliver meets industry best practice.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 28 }}>
+                {[
+                  { label: "Company Registration", value: "2014/236708/07" },
+                  { label: "CIE Number", value: "28/1/2/1/22442" },
+                  { label: "B-BBEE Level", value: "Level 1 (135%)" },
+                  { label: "Established", value: "2014" },
+                ].map((item, i) => (
+                  <div key={i} style={{ padding: 16, background: C.forestDeep, borderRadius: 14, border: "1px solid rgba(255,255,255,0.04)" }}>
+                    <div style={{ fontSize: 10, fontWeight: 700, color: "#6b7280", textTransform: "uppercase", letterSpacing: "0.1em", marginBottom: 4 }}>{item.label}</div>
+                    <div style={{ fontSize: 16, fontWeight: 800, color: "white" }}>{item.value}</div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {["ISO 9001:2015 Quality Management Systems", "OHS Act & Construction Regulations Compliant", "NHBRC Registered Home Builder", "SACPCMP Registered Safety Professionals"].map((cert, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, fontSize: 14, color: "#e5e7eb" }}>
+                    <CheckCircle2 size={16} style={{ color: C.lime, flexShrink: 0 }} />{cert}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div style={{ flex: "1 1 320px", minHeight: 400, position: "relative" }}>
+              <img src={IMAGES.safety} alt="Safety compliance" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              <div style={{ position: "absolute", inset: 0, background: "linear-gradient(90deg, rgba(15,33,27,0.6) 0%, transparent 30%)" }} />
+            </div>
+          </div>
+        </Glass>
+      </section>
+
+      {/* ═══ SECTION 8: SECTORS WE SERVE ═══ */}
+      <section style={{ background: C.forestMid, borderTop: "1px solid rgba(255,255,255,0.03)", borderBottom: "1px solid rgba(255,255,255,0.03)" }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 24px" }}>
+          <div style={{ textAlign: "center", marginBottom: 48 }}>
+            <Tag>Industries</Tag>
+            <h2 style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: 900, color: "white", letterSpacing: "-0.02em" }}>Sectors We Serve</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 16 }}>
+            {[
+              { name: "Platinum Mining", icon: "⛏️" },
+              { name: "Gold & Chrome", icon: "🥇" },
+              { name: "Government", icon: "🏛️" },
+              { name: "Construction", icon: "🏗️" },
+              { name: "Energy & Power", icon: "⚡" },
+              { name: "Water & Sanitation", icon: "💧" },
+              { name: "Transport & Roads", icon: "🛣️" },
+              { name: "Housing & Property", icon: "🏘️" },
+            ].map((sector, i) => (
+              <div key={i} style={{ padding: "28px 24px", background: C.forestDeep, borderRadius: 16, border: "1px solid rgba(255,255,255,0.04)", textAlign: "center", transition: "all 0.3s", cursor: "default" }}
+                onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(190,242,100,0.15)"; e.currentTarget.style.transform = "translateY(-2px)"; }}
+                onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.04)"; e.currentTarget.style.transform = "translateY(0)"; }}
+              >
+                <div style={{ fontSize: 28, marginBottom: 10 }}>{sector.icon}</div>
+                <h4 style={{ color: "white", fontWeight: 700, fontSize: 14 }}>{sector.name}</h4>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ SECTION 9: CTA — Contact strip ═══ */}
+      <section style={{ maxWidth: 1280, margin: "0 auto", padding: "80px 24px" }}>
+        <div style={{ position: "relative", borderRadius: 28, overflow: "hidden" }}>
+          <img src={IMAGES.joburg} alt="Johannesburg" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", inset: 0, background: "linear-gradient(135deg, rgba(7,18,14,0.92), rgba(7,18,14,0.7))" }} />
+          <div style={{ position: "relative", padding: "clamp(40px, 6vw, 80px)", display: "flex", flexWrap: "wrap", alignItems: "center", justifyContent: "space-between", gap: 32 }}>
+            <div style={{ maxWidth: 520 }}>
+              <h2 style={{ fontSize: "clamp(24px, 3vw, 36px)", fontWeight: 900, color: "white", marginBottom: 12, letterSpacing: "-0.02em" }}>Ready to Start Your Next Project?</h2>
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: 16, lineHeight: 1.7 }}>
+                Whether it's a construction tender, plant maintenance shutdown, or logistics contract — our team is ready to deliver. Contact us today for a free consultation.
+              </p>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+              <button onClick={() => go("book")} style={{ padding: "16px 36px", background: C.lime, color: C.forestDeep, fontWeight: 800, borderRadius: 14, border: "none", cursor: "pointer", fontSize: 15, display: "flex", alignItems: "center", gap: 8 }}>
+                Book a Consultation <ArrowUpRight size={18} />
+              </button>
+              <button onClick={() => go("associates")} style={{ padding: "16px 36px", background: "transparent", color: "white", fontWeight: 700, borderRadius: 14, border: "1px solid rgba(255,255,255,0.2)", cursor: "pointer", fontSize: 15, textAlign: "center" }}>
+                Become an Associate
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+};
 
 const AboutPage = ({ go }) => (
   <div style={{ maxWidth: 1280, margin: "0 auto", padding: 24, animation: "fadeUp 0.6s ease forwards" }}>
     <Tag>Corporate Profile</Tag><h1 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 700, color: "white", textTransform: "uppercase", marginBottom: 32 }}>About Selela SA Africa</h1>
     <div style={{ position: "relative", borderRadius: 32, overflow: "hidden", marginBottom: 32, height: "clamp(200px, 30vw, 360px)" }}><img src={IMAGES.joburg} alt="Johannesburg" style={{ width: "100%", height: "100%", objectFit: "cover" }}/><div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(7,18,14,0.3), rgba(7,18,14,0.85))" }}/><div style={{ position: "absolute", bottom: 32, left: 32 }}><h2 style={{ color: "white", fontWeight: 800, fontSize: "clamp(20px, 3vw, 32px)" }}>Headquartered in Ledig, North West</h2><p style={{ color: "rgba(255,255,255,0.6)", fontSize: 15 }}>Serving the entire African continent</p></div></div>
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: 24, marginBottom: 32 }}>
-      <Glass style={{ borderRadius: 28, padding: "clamp(24px, 4vw, 40px)" }}><h3 style={{ color: "white", fontWeight: 700, fontSize: 22, marginBottom: 16 }}>Our Story</h3><p style={{ color: "#9ca3af", lineHeight: 1.8, fontSize: 15 }}>Selela SA Africa (Pty) Ltd is a leading provider of industrial and corporate services. Founded on principles of excellence and integrity, we bridge the gap between complex industrial requirements and efficient operational execution.</p></Glass>
+      <Glass style={{ borderRadius: 28, padding: "clamp(24px, 4vw, 40px)" }}><h3 style={{ color: "white", fontWeight: 700, fontSize: 22, marginBottom: 16 }}>Our Story</h3><p style={{ color: "#9ca3af", lineHeight: 1.8, fontSize: 15 }}>Selela SA Africa (Pty) Ltd (Reg: 2014/236708/07) was established in 2014 as a 100% black-owned industrial and corporate services company headquartered in Ledig, North West Province — strategically positioned near Sun City, the Pilanesberg complex, and the platinum-rich Bojanala mining district.
+
+We are a certified Level 1 B-BBEE contributor, making us an ideal empowerment partner for both private sector procurement and government tenders. Our team of qualified engineers, safety officers, and logistics professionals brings decades of combined experience across construction, mining support services, freight logistics, property development, and corporate compliance.
+
+From bulk earthworks and structural steel to fleet logistics and safety management, we deliver end-to-end solutions that meet the demanding standards of South Africa\'s mining, construction, and industrial sectors.</p></Glass>
       <div style={{ position: "relative", borderRadius: 28, overflow: "hidden", minHeight: 280 }}><img src={IMAGES.consulting} alt="Team" style={{ width: "100%", height: "100%", objectFit: "cover" }}/><div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 60%, rgba(7,18,14,0.8) 100%)" }}/><div style={{ position: "absolute", bottom: 24, left: 24 }}><span style={{ color: C.lime, fontWeight: 700, fontSize: 12, textTransform: "uppercase" }}>Our People</span><h4 style={{ color: "white", fontWeight: 700, fontSize: 18 }}>Expert Professionals</h4></div></div>
     </div>
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: 24 }}>
-      {[{ I: Target, l: "Mission-Driven", d: "Sustainable industrial growth across Africa" }, { I: Award, l: "BEE Level 1", d: "Certified Level 1 B-BBEE contributor" }, { I: Users, l: "Expert Team", d: "Seasoned professionals across sectors" }, { I: TrendingUp, l: "Growth-Oriented", d: "Year-over-year expansion" }].map((x, i) => (
+      {[{ I: Target, l: "Mission-Driven", d: "Driving job creation and skills transfer in the Bojanala district through local hiring and community upliftment" }, { I: Award, l: "BEE Level 1", d: "Certified Level 1 B-BBEE contributor" }, { I: Users, l: "Expert Team", d: "Qualified artisans, safety officers (SACPCMP), project managers, and logistics coordinators" }, { I: TrendingUp, l: "Growth-Oriented", d: "Expanding footprint across North West, Gauteng, and Limpopo with new service capabilities" }].map((x, i) => (
         <div key={i} style={{ padding: 24, background: C.forestDeep, borderRadius: 20, border: "1px solid rgba(255,255,255,0.05)" }}><x.I size={24} style={{ color: C.lime, marginBottom: 12 }}/><h3 style={{ color: "white", fontWeight: 700, marginBottom: 8, fontSize: 16 }}>{x.l}</h3><p style={{ color: "#6b7280", fontSize: 13 }}>{x.d}</p></div>
       ))}
     </div>
   </div>
 );
 
+const SERVICE_LINKS = [
+  { t: "Industrial Engineering", id: "industrial-engineering", I: Construction, d: "Structural steel fabrication, plant shutdown maintenance, mechanical installations for mining concentrators, smelters, and processing plants.", c: C.lime, img: IMAGES.industrial },
+  { t: "Governance & Compliance", id: "governance-compliance", I: ShieldCheck, d: "OHS Act compliance, safety files, risk assessments, fall protection plans, legal appointments, and contractor pre-qualification.", c: C.gold, img: IMAGES.safety },
+  { t: "Logistics & Supply Chain", id: "logistics-supply-chain", I: Truck, d: "Fleet management, material haulage, bulk transport, and warehousing across North West, Gauteng, Limpopo, and Mpumalanga.", c: "#60a5fa", img: IMAGES.logistics },
+  { t: "Strategic Consulting", id: "strategic-consulting", I: Briefcase, d: "B-BBEE scorecard optimisation, tender preparation, bid writing, feasibility studies, and joint venture structuring.", c: C.lime, img: IMAGES.consulting },
+  { t: "Construction & Development", id: "construction-development", I: Building2, d: "Residential, commercial, and industrial construction from site establishment through to practical completion. NHBRC & CIDB registered.", c: C.gold, img: IMAGES.construction },
+  { t: "Real Estate Solutions", id: "real-estate", I: Globe, d: "Land acquisition, township development, affordable housing, site servicing, and property portfolio management.", c: "#60a5fa", img: IMAGES.realEstate },
+];
+
 const ServicesPage = ({ go }) => (
   <div style={{ maxWidth: 1280, margin: "0 auto", padding: 24, animation: "fadeUp 0.6s ease forwards" }}>
-    <Tag>Our Capabilities</Tag><h1 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 700, color: "white", textTransform: "uppercase", marginBottom: 32 }}>Specialized Services</h1>
+    <Tag>Our Capabilities</Tag><h1 style={{ fontSize: "clamp(28px, 4vw, 40px)", fontWeight: 700, color: "white", textTransform: "uppercase", marginBottom: 12 }}>Specialized Services</h1>
+    <p style={{ color: "#9ca3af", fontSize: 16, marginBottom: 32, maxWidth: 640 }}>Click on any service to learn more and request a quote.</p>
     <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 24 }}>
-      {[{ t: "Industrial Engineering", I: Construction, d: "Advanced structural and mechanical maintenance for heavy industrial plants.", c: C.lime, img: IMAGES.industrial },
-        { t: "Governance & Compliance", I: ShieldCheck, d: "Tailored risk management and safety protocols.", c: C.gold, img: IMAGES.safety },
-        { t: "Logistics & Supply Chain", I: Truck, d: "Efficient trans-continental logistics and distribution.", c: "#60a5fa", img: IMAGES.logistics },
-        { t: "Strategic Consulting", I: Briefcase, d: "Corporate growth strategies and advisory services.", c: C.lime, img: IMAGES.consulting },
-        { t: "Construction & Development", I: Building2, d: "Full-spectrum construction management.", c: C.gold, img: IMAGES.construction },
-        { t: "Real Estate Solutions", I: Globe, d: "Property development and management across Africa.", c: "#60a5fa", img: IMAGES.realEstate }
-      ].map((s, i) => (
-        <Glass key={i} style={{ borderRadius: 24, overflow: "hidden" }}>
-          <div style={{ position: "relative", height: 200, overflow: "hidden" }}><img src={s.img} alt={s.t} style={{ width: "100%", height: "100%", objectFit: "cover" }}/><div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(15,33,27,0.95) 100%)" }}/><div style={{ position: "absolute", bottom: 16, left: 20, width: 44, height: 44, borderRadius: 12, background: "rgba(7,18,14,0.7)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(255,255,255,0.1)" }}><s.I style={{ color: s.c }} size={22}/></div></div>
-          <div style={{ padding: "20px 24px 28px" }}><h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 10 }}>{s.t}</h3><p style={{ color: "#9ca3af", lineHeight: 1.7, fontSize: 14 }}>{s.d}</p></div>
+      {SERVICE_LINKS.map((s, i) => (
+        <Glass key={i} style={{ borderRadius: 24, overflow: "hidden", cursor: "pointer", transition: "all 0.4s" }} onClick={() => go(s.id)}
+          onMouseEnter={e => { e.currentTarget.style.borderColor = s.c + "44"; e.currentTarget.style.transform = "translateY(-4px)"; }}
+          onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.05)"; e.currentTarget.style.transform = "translateY(0)"; }}
+        >
+          <div style={{ position: "relative", height: 200, overflow: "hidden" }}>
+            <img src={s.img} alt={s.t} style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.6s" }}
+              onMouseEnter={e => e.currentTarget.style.transform = "scale(1.06)"}
+              onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"} />
+            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(15,33,27,0.95) 100%)" }} />
+            <div style={{ position: "absolute", bottom: 16, left: 20, width: 44, height: 44, borderRadius: 12, background: "rgba(7,18,14,0.7)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid rgba(255,255,255,0.1)" }}><s.I style={{ color: s.c }} size={22} /></div>
+          </div>
+          <div style={{ padding: "20px 24px 28px" }}>
+            <h3 style={{ fontSize: 20, fontWeight: 700, color: "white", marginBottom: 10 }}>{s.t}</h3>
+            <p style={{ color: "#9ca3af", lineHeight: 1.7, fontSize: 14, marginBottom: 16 }}>{s.d}</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 12, fontWeight: 700, color: s.c, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+              View Details & Request Quote <ArrowUpRight size={14} />
+            </div>
+          </div>
         </Glass>
       ))}
     </div>
@@ -376,7 +675,7 @@ const AssociatesPage = ({ go }) => {
           <div style={{ position: "relative", borderRadius: 28, overflow: "hidden", height: 220 }}><img src={IMAGES.consulting} alt="Partnership" style={{ width: "100%", height: "100%", objectFit: "cover" }}/><div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, transparent 40%, rgba(7,18,14,0.9) 100%)" }}/><div style={{ position: "absolute", bottom: 24, left: 24 }}><h3 style={{ color: "white", fontWeight: 800, fontSize: 20 }}>Strategic Partnerships</h3><p style={{ color: "rgba(255,255,255,0.6)", fontSize: 13 }}>Growing together across Africa</p></div></div>
           <Glass style={{ borderRadius: 20, padding: 24 }}>
             <h3 style={{ color: "white", fontWeight: 700, fontSize: 16, marginBottom: 16 }}>Why Partner With Us?</h3>
-            {["Access to pan-African industrial networks", "Joint venture & project opportunities", "Shared compliance & safety frameworks", "Brand association with industry leader"].map((b, i) => (
+            {["Access to mining, construction, and government procurement networks across North West and Gauteng", "Joint venture opportunities on CIDB-graded construction and mining support tenders", "Shared safety files, contractor packs, and OHS compliance documentation", "Level 1 B-BBEE partnership for enhanced procurement scoring and tender eligibility"].map((b, i) => (
               <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12 }}><CheckCircle2 size={16} style={{ color: C.lime, flexShrink: 0 }}/><span style={{ color: "#9ca3af", fontSize: 14 }}>{b}</span></div>
             ))}
           </Glass>
@@ -432,9 +731,9 @@ const BookingsPage = ({ go }) => {
   const [success, setSuccess] = useState(false);
   const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
   const types = [
-    { t: "Site Inspection", d: "Comprehensive onsite safety and engineering evaluation.", i: Shield, time: "2-4 hours", img: IMAGES.hero },
-    { t: "Consultation Meeting", d: "Strategic discussion about your industrial requirements.", i: Briefcase, time: "1 hour", img: IMAGES.consulting },
-    { t: "Compliance Audit", d: "Full regulatory compliance assessment and reporting.", i: FileText, time: "Full day", img: IMAGES.safety },
+    { t: "Site Inspection", d: "Our qualified safety officers conduct full site inspections including hazard identification, legal compliance checks, scaffold and excavation assessments, and PPE audits. Detailed report with corrective actions provided within 48 hours.", i: Shield, time: "2-4 hours", img: IMAGES.hero },
+    { t: "Consultation Meeting", d: "One-on-one meeting with our project managers to scope your construction, logistics, or engineering needs. We discuss timelines, budgets, resource requirements, and can provide preliminary quotations on the same day.", i: Briefcase, time: "1 hour", img: IMAGES.consulting },
+    { t: "Compliance Audit", d: "Comprehensive review of your OHS Act compliance, safety files, legal appointments, training records, and incident logs. We issue a detailed audit report with a compliance score and prioritised corrective action plan.", i: FileText, time: "Full day", img: IMAGES.safety },
   ];
 
   const submit = async () => {
@@ -598,8 +897,223 @@ const AdminPage = ({ go }) => {
   );
 };
 
+
+// ─── Service Detail Pages ────────────────────────────────────────────
+const SERVICE_DATA = {
+  "industrial-engineering": {
+    title: "Industrial Engineering",
+    tag: "Engineering Solutions",
+    Icon: Construction,
+    color: C.lime,
+    img: IMAGES.industrial,
+    heroDesc: "Precision engineering and maintenance solutions for mining and industrial operations across the Bojanala district and beyond.",
+    sections: [
+      { heading: "What We Do", text: "Selela SA Africa delivers comprehensive industrial engineering services to mining concentrators, smelters, processing plants, and heavy manufacturing facilities. Our qualified teams execute structural steel fabrication and erection, mechanical installations, piping systems, pressure vessel maintenance, and full plant shutdown programmes. We operate across platinum group metals, chrome, gold, manganese, and coal operations throughout North West Province, Gauteng, Limpopo, and Mpumalanga." },
+      { heading: "Plant Shutdown & Maintenance", text: "We plan and execute scheduled and emergency plant shutdowns with minimal production downtime. Our shutdown scope includes conveyor system overhauls, crusher liner replacements, mill reline support, screen panel changes, pump rebuilds, and cyclone maintenance. We deploy multi-disciplinary teams of boilermakers, welders (coded to ASME IX and EN standards), riggers, millwrights, and mechanical fitters on short notice." },
+      { heading: "Structural Steel & Fabrication", text: "From design-assist through to on-site erection, we fabricate and install structural steelwork for processing plants, storage facilities, conveyor gantries, pipe racks, and access platforms. Our workshop capabilities include plate rolling, profile cutting, MIG/TIG/stick welding, and surface preparation with protective coatings to ISO 12944 standards." },
+      { heading: "Why Choose Us", text: "Our team holds relevant trade qualifications and certifications recognised by the Engineering Council of South Africa. As a Level 1 B-BBEE contributor, we provide mining houses with maximum procurement recognition points. We maintain comprehensive safety systems including PTW (Permit to Work), LOTO (Lock Out Tag Out), and confined space entry procedures aligned to mine health and safety regulations." },
+    ],
+    features: ["Coded welders (ASME IX / EN)", "Plant shutdown management", "Structural steel fabrication & erection", "Mechanical & piping installations", "Conveyor system maintenance", "LOTO & confined space certified"],
+  },
+  "governance-compliance": {
+    title: "Governance & Compliance",
+    tag: "Safety & Risk Management",
+    Icon: ShieldCheck,
+    color: C.gold,
+    img: IMAGES.safety,
+    heroDesc: "Protecting your workforce and operations through comprehensive safety management, regulatory compliance, and risk mitigation.",
+    sections: [
+      { heading: "What We Do", text: "Selela SA Africa provides end-to-end occupational health and safety services aligned with the OHS Act (Act 85 of 1993), Mine Health and Safety Act (Act 29 of 1996), and Construction Regulations (2014). We help contractors, mine operators, and property developers meet their legal obligations through practical, site-specific safety solutions." },
+      { heading: "Safety File Development", text: "We compile project-specific safety files that include health and safety specifications, risk assessments (baseline and issue-based), safe work procedures, fall protection plans, emergency response plans, and environmental management plans. Our files are structured to meet the requirements of both private sector clients and government departments including the Department of Employment and Labour." },
+      { heading: "Legal Appointments & Training", text: "We assist with Regulation 16.2 appointments (Construction Health and Safety Agent), 8.1 appointments (Construction Health and Safety Officer), and Section 16.1 CEO appointments. Our training programmes cover SHE representative duties, incident investigation, first aid (Level 1-3), working at heights, scaffolding inspection, and excavation safety." },
+      { heading: "Audit & Compliance Services", text: "Our SACPCMP-registered safety professionals conduct internal safety audits, legal compliance audits, contractor evaluations, and pre-qualification assessments. We issue detailed audit reports with compliance scores and prioritised corrective action plans. We also prepare contractor pre-qualification packs for access to mine properties managed by Anglo American Platinum, Sibanye-Stillwater, Royal Bafokeng Platinum, and Impala Platinum." },
+    ],
+    features: ["OHS Act & MHSA compliance", "Safety file compilation", "Risk assessments & fall protection plans", "Legal appointments (16.1, 16.2, 8.1)", "SACPCMP registered professionals", "Contractor pre-qualification packs"],
+  },
+  "logistics-supply-chain": {
+    title: "Logistics & Supply Chain",
+    tag: "Transport & Distribution",
+    Icon: Truck,
+    color: "#60a5fa",
+    img: IMAGES.logistics,
+    heroDesc: "Reliable fleet logistics and supply chain management connecting mining, construction, and industrial sites across Southern Africa.",
+    sections: [
+      { heading: "What We Do", text: "Selela SA Africa operates dedicated and shared fleet services for the mining, construction, and industrial sectors. We transport construction materials, mining consumables, bulk water, fuel, equipment, and general freight across North West Province, Gauteng, Limpopo, and Mpumalanga. Our operations are managed from our Ledig depot with satellite staging points near key mining and construction hubs." },
+      { heading: "Fleet Capabilities", text: "Our fleet includes flatbed trucks, tipper trucks, side-tippers, water tankers, fuel bowsers, lowbed trailers for abnormal loads, and panel vans for last-mile delivery. All vehicles are GPS-tracked with real-time monitoring for route optimisation, driver behaviour scoring, and proof-of-delivery reporting. Our drivers hold valid Professional Driving Permits (PrDPs) and undergo regular medical surveillance and defensive driving training." },
+      { heading: "Mining & Construction Logistics", text: "We specialise in the transport of mining consumables (grinding media, reagents, PPE, spare parts), construction materials (cement, aggregate, reinforcing steel, structural steel), and bulk commodities. For construction sites, we provide material scheduling aligned to project programmes, ensuring just-in-time delivery to minimise site storage requirements and material waste." },
+      { heading: "Supply Chain Management", text: "Beyond transport, we offer warehousing, inventory management, procurement support, and vendor coordination. We help clients streamline their supply chains by consolidating orders, managing supplier relationships, and providing regular reporting on delivery performance, costs, and stock levels. Our systems integrate with client ERP platforms for seamless data exchange." },
+    ],
+    features: ["GPS-tracked fleet", "Tipper, flatbed, lowbed & tanker vehicles", "PrDP-certified drivers", "Mining consumable delivery", "Bulk material haulage", "Warehouse & inventory management"],
+  },
+  "strategic-consulting": {
+    title: "Strategic Consulting",
+    tag: "Business Advisory",
+    Icon: Briefcase,
+    color: C.lime,
+    img: IMAGES.consulting,
+    heroDesc: "Expert advisory services to help businesses grow, win tenders, and navigate the complexities of South African industrial procurement.",
+    sections: [
+      { heading: "What We Do", text: "Selela SA Africa offers strategic business consulting tailored to the South African industrial sector. We help SMMEs and established enterprises develop growth strategies, optimise their B-BBEE scorecards, prepare competitive tender submissions, and structure joint ventures. Our consultants bring hands-on experience across mining, construction, and government procurement." },
+      { heading: "B-BBEE Scorecard Optimisation", text: "As a Level 1 B-BBEE contributor ourselves, we understand the Codes of Good Practice intimately. We help clients improve their BEE levels by advising on ownership structures, management control, skills development spend, enterprise and supplier development initiatives, and socio-economic development contributions. We work with SANAS-accredited verification agencies to ensure accurate and favourable scorecard outcomes." },
+      { heading: "Tender Preparation & Bid Writing", text: "We prepare complete tender response packages including technical proposals, methodology statements, resource plans, programme schedules (Gantt charts), organograms, CVs, and pricing schedules (BOQs). We have experience with CSD (Central Supplier Database) registration, CIDB grading applications, and the specific requirements of National Treasury, provincial governments, municipalities, SOEs (Eskom, Transnet, SANRAL), and mining houses." },
+      { heading: "Joint Venture & Enterprise Development", text: "We help established companies identify and structure BEE joint venture partnerships. We also support emerging contractors and suppliers through our enterprise development programmes, which include mentoring, business plan development, financial management training, and access to our established supply chain networks. This creates genuine transformation outcomes while helping larger firms meet their procurement targets." },
+    ],
+    features: ["B-BBEE scorecard advisory", "Tender & bid preparation", "CSD & CIDB registration support", "Joint venture structuring", "Enterprise development programmes", "Business plan development"],
+  },
+  "construction-development": {
+    title: "Construction & Development",
+    tag: "Building Solutions",
+    Icon: Building2,
+    color: C.gold,
+    img: IMAGES.construction,
+    heroDesc: "Full-spectrum construction management from foundations to handover, delivering residential, commercial, and industrial projects.",
+    sections: [
+      { heading: "What We Do", text: "Selela SA Africa delivers construction projects across the residential, commercial, and light industrial sectors. We manage the full project lifecycle from site establishment and bulk earthworks through to structural construction, finishes, and practical completion. Our construction division is NHBRC-registered and holds CIDB grading that qualifies us for public and private sector contracts." },
+      { heading: "Residential Construction", text: "We build single residential homes, housing estate developments, and affordable housing projects. Our residential capabilities include foundations (strip, raft, and pile), brickwork and blockwork, concrete work (slabs, lintels, columns), roof structures (timber and steel trusses), waterproofing, plastering, tiling, painting, plumbing, and electrical first and second fix. We work with the NHBRC enrolment process to provide homeowners with structural warranty cover." },
+      { heading: "Commercial & Industrial", text: "Our commercial portfolio includes office buildings, retail centres, warehouses, workshops, and community facilities (clinics, schools, community halls). For industrial projects, we construct processing plant buildings, storage facilities, wash bays, weighbridges, and site infrastructure including roads, fencing, and stormwater management. We work with professional teams (architects, engineers, quantity surveyors) and can operate under both traditional and design-and-build procurement models." },
+      { heading: "Site Infrastructure & Civils", text: "We execute civil engineering works including bulk earthworks, trenching, pipe laying (water, sewer, stormwater), road construction (gravel and surfaced), kerbing, paving, and electrical reticulation trenching. For township developments, we provide complete site servicing from greenfield to stand handover, coordinating with local authorities for service connections and compliance certificates." },
+    ],
+    features: ["NHBRC registered", "CIDB graded contractor", "Residential, commercial & industrial", "Bulk earthworks & civils", "Full project management", "Defects liability period management"],
+  },
+  "real-estate": {
+    title: "Real Estate Solutions",
+    tag: "Property & Development",
+    Icon: Globe,
+    color: "#60a5fa",
+    img: IMAGES.realEstate,
+    heroDesc: "Strategic property development, land acquisition, and portfolio management across North West Province and beyond.",
+    sections: [
+      { heading: "What We Do", text: "Selela SA Africa provides integrated real estate services spanning land identification, acquisition, development, and ongoing property management. We focus on affordable housing developments, mixed-use commercial projects, and industrial property in North West Province, with a particular emphasis on communities near mining operations and growth nodes around Rustenburg, Phokeng, Ledig, and Sun City." },
+      { heading: "Land & Township Development", text: "We identify and acquire suitable land parcels, conduct feasibility studies (geotechnical, environmental, town planning), and manage the township establishment process through to general plan approval and stand registration. Our development scope includes internal services (water, sewer, roads, stormwater, electrical), community facilities, and landscaping. We navigate the municipal approvals process including EIAs, rezoning applications, and building plan submissions." },
+      { heading: "Affordable Housing", text: "We develop housing projects aligned with the government\'s human settlements programme, including FLISP (Finance Linked Individual Subsidy Programme) and social housing initiatives. We work with provincial departments, municipalities, and housing development agencies to deliver quality homes that meet NHBRC standards while remaining affordable for qualifying beneficiaries." },
+      { heading: "Property Management", text: "For investors and developers, we provide ongoing property management services including tenant placement, lease administration, rent collection, maintenance coordination, and financial reporting. Our management portfolio includes residential complexes, commercial office space, and light industrial properties. We handle compliance with the Rental Housing Act, municipal bylaws, and sectional title scheme requirements where applicable." },
+    ],
+    features: ["Land acquisition & feasibility", "Township establishment", "Affordable housing development", "FLISP & social housing", "Property portfolio management", "Municipal approvals & compliance"],
+  },
+};
+
+const ServiceDetailPage = ({ go, serviceId }) => {
+  const svc = SERVICE_DATA[serviceId];
+  const [form, setForm] = useState({ name: "", email: "", phone: "", company: "", service: svc?.title || "", message: "" });
+  const [success, setSuccess] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const set = (k, v) => setForm(p => ({ ...p, [k]: v }));
+
+  const submit = async () => {
+    if (!form.name || !form.email || !form.message) return;
+    setSubmitting(true);
+    const result = await api.post("/api/contacts", { ...form, message: `[SERVICE INQUIRY: ${svc.title}] ${form.message}` });
+    if (result.success) { setSuccess(true); setForm({ name: "", email: "", phone: "", company: "", service: svc.title, message: "" }); }
+    setSubmitting(false);
+  };
+
+  if (!svc) return <div style={{ maxWidth: 1280, margin: "0 auto", padding: 24 }}><p style={{ color: "#9ca3af" }}>Service not found.</p><button onClick={() => go("services")} style={{ color: C.lime, background: "none", border: "none", cursor: "pointer", marginTop: 16 }}>← Back to Services</button></div>;
+
+  return (
+    <div style={{ maxWidth: 1280, margin: "0 auto", padding: 24, animation: "fadeUp 0.6s ease forwards" }}>
+      {/* Breadcrumb */}
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 24, fontSize: 13 }}>
+        <button onClick={() => go("home")} style={{ color: "#6b7280", background: "none", border: "none", cursor: "pointer" }}>Home</button>
+        <ChevronRight size={14} style={{ color: "#4b5563" }} />
+        <button onClick={() => go("services")} style={{ color: "#6b7280", background: "none", border: "none", cursor: "pointer" }}>Services</button>
+        <ChevronRight size={14} style={{ color: "#4b5563" }} />
+        <span style={{ color: C.lime }}>{svc.title}</span>
+      </div>
+
+      {/* Hero Banner */}
+      <div style={{ position: "relative", borderRadius: 32, overflow: "hidden", marginBottom: 40, height: "clamp(220px, 30vw, 380px)" }}>
+        <img src={svc.img} alt={svc.title} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(180deg, rgba(7,18,14,0.4) 0%, rgba(7,18,14,0.9) 100%)" }} />
+        <div style={{ position: "absolute", bottom: 40, left: 40, right: 40 }}>
+          <Tag>{svc.tag}</Tag>
+          <h1 style={{ color: "white", fontWeight: 900, fontSize: "clamp(28px, 4vw, 48px)", marginBottom: 12 }}>{svc.title}</h1>
+          <p style={{ color: "rgba(255,255,255,0.7)", fontSize: "clamp(14px, 2vw, 18px)", maxWidth: 640 }}>{svc.heroDesc}</p>
+        </div>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: 32 }} className="svc-grid">
+        {/* Main Content */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          {svc.sections.map((sec, i) => (
+            <Glass key={i} style={{ borderRadius: 24, padding: "clamp(24px, 3vw, 36px)" }}>
+              <h2 style={{ color: "white", fontWeight: 700, fontSize: 22, marginBottom: 16, display: "flex", alignItems: "center", gap: 12 }}>
+                <div style={{ width: 4, height: 24, borderRadius: 2, background: svc.color }} />
+                {sec.heading}
+              </h2>
+              <p style={{ color: "#9ca3af", lineHeight: 1.8, fontSize: 15 }}>{sec.text}</p>
+            </Glass>
+          ))}
+
+          {/* Features */}
+          <Glass style={{ borderRadius: 24, padding: "clamp(24px, 3vw, 36px)", borderColor: `${svc.color}22` }}>
+            <h2 style={{ color: "white", fontWeight: 700, fontSize: 20, marginBottom: 20 }}>Key Capabilities</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 12 }}>
+              {svc.features.map((f, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "12px 16px", background: C.forestDeep, borderRadius: 12, border: "1px solid rgba(255,255,255,0.05)" }}>
+                  <CheckCircle2 size={16} style={{ color: svc.color, flexShrink: 0 }} />
+                  <span style={{ color: "#e5e7eb", fontSize: 14 }}>{f}</span>
+                </div>
+              ))}
+            </div>
+          </Glass>
+        </div>
+
+        {/* Sidebar: Inquiry Form */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
+          <Glass style={{ borderRadius: 24, padding: 28, position: "sticky", top: 110 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 20 }}>
+              <div style={{ width: 40, height: 40, borderRadius: 12, background: `${svc.color}20`, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <svc.Icon size={20} style={{ color: svc.color }} />
+              </div>
+              <div>
+                <h3 style={{ color: "white", fontWeight: 700, fontSize: 16 }}>Request a Quote</h3>
+                <p style={{ color: "#6b7280", fontSize: 12 }}>for {svc.title}</p>
+              </div>
+            </div>
+
+            {success ? (
+              <SuccessMsg msg="Your inquiry has been submitted. We'll get back to you within 24 hours." onClose={() => setSuccess(false)} />
+            ) : (
+              <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+                <InputField label="Full Name" value={form.name} onChange={v => set("name", v)} placeholder="Your name" required />
+                <InputField label="Email" value={form.email} onChange={v => set("email", v)} placeholder="you@email.com" type="email" required />
+                <InputField label="Phone" value={form.phone} onChange={v => set("phone", v)} placeholder="+27 ..." type="tel" />
+                <InputField label="Company" value={form.company} onChange={v => set("company", v)} placeholder="Company name" />
+                <InputField label="Tell us about your requirements" value={form.message} onChange={v => set("message", v)} placeholder={"Describe your " + svc.title.toLowerCase() + " needs, project scope, timeline, etc."} textarea required />
+                <button onClick={submit} disabled={submitting || !form.name || !form.email || !form.message} style={{ padding: "14px", background: `linear-gradient(135deg, ${svc.color}, ${svc.color}cc)`, color: C.forestDeep, fontWeight: 700, borderRadius: 12, border: "none", cursor: "pointer", fontSize: 14, opacity: submitting || !form.name || !form.email || !form.message ? 0.5 : 1, transition: "opacity 0.3s" }}>
+                  {submitting ? "Sending..." : "Submit Inquiry"}
+                </button>
+              </div>
+            )}
+          </Glass>
+
+          {/* CTA: Book Consultation */}
+          <Glass style={{ borderRadius: 20, padding: 24, textAlign: "center" }}>
+            <Calendar size={24} style={{ color: C.gold, margin: "0 auto 12px" }} />
+            <h4 style={{ color: "white", fontWeight: 700, marginBottom: 8 }}>Prefer to talk?</h4>
+            <p style={{ color: "#6b7280", fontSize: 13, marginBottom: 16 }}>Book a consultation with our team</p>
+            <button onClick={() => go("book")} style={{ width: "100%", padding: "12px", background: C.forestDeep, border: "1px solid rgba(255,255,255,0.1)", borderRadius: 12, color: "white", fontWeight: 600, fontSize: 13, cursor: "pointer" }}>Book Consultation</button>
+          </Glass>
+
+          {/* Contact */}
+          <div style={{ padding: "20px 24px", background: C.forestDeep, borderRadius: 16, border: "1px solid rgba(255,255,255,0.05)" }}>
+            <p style={{ color: "#6b7280", fontSize: 12, marginBottom: 12, fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.1em" }}>Direct Contact</p>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}><Phone size={14} style={{ color: C.lime }} /><span style={{ color: "#9ca3af", fontSize: 14 }}>+27 82 729 3140</span></div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10 }}><Mail size={14} style={{ color: C.lime }} /><span style={{ color: "#9ca3af", fontSize: 14 }}>info@selelasaafrica.co.za</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+
 // ═══════════════════════════════════════════════════════════════════════
-const PAGES = { home: HomePage, about: AboutPage, services: ServicesPage, associates: AssociatesPage, contact: ContactPage, book: BookingsPage, admin: AdminPage };
+const PAGES = { 
+  home: HomePage, about: AboutPage, services: ServicesPage, associates: AssociatesPage, contact: ContactPage, book: BookingsPage, admin: AdminPage,
+  "industrial-engineering": ServiceDetailPage, "governance-compliance": ServiceDetailPage, "logistics-supply-chain": ServiceDetailPage,
+  "strategic-consulting": ServiceDetailPage, "construction-development": ServiceDetailPage, "real-estate": ServiceDetailPage,
+};
 
 export default function App() {
   const [page, setPage] = useState("home");
@@ -617,11 +1131,12 @@ export default function App() {
         @media(max-width:1024px){.hide-m{display:none!important}.show-m{display:flex!important}}
         @media(max-width:768px){.img-grid{grid-template-columns:1fr 1fr!important}.img-grid>*:first-child{grid-column:span 2;grid-row:span 1!important}}
         @media(max-width:480px){.img-grid{grid-template-columns:1fr!important}.img-grid>*:first-child{grid-column:span 1}}
+        @media(max-width:900px){.svc-grid{grid-template-columns:1fr!important}}
         input::placeholder,textarea::placeholder{color:#4b5563}
         ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.1);border-radius:3px}
       `}</style>
       <Navbar page={page} go={setPage}/>
-      <main style={{ flexGrow: 1, paddingTop: 96 }}><P go={setPage}/></main>
+      <main style={{ flexGrow: 1, paddingTop: 96 }}><P go={setPage} serviceId={page}/></main>
       <Footer go={setPage}/>
       <Chatbot/>
     </div>
